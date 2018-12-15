@@ -1,5 +1,5 @@
 require "date"
-
+require "byebug"
 require "active_record"
 
 require_relative "../models/user"
