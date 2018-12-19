@@ -56,6 +56,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord (~> 5.0)
+  byebug
   database_cleaner (~> 1.0)
   factory_bot (~> 4.0)
   pg (= 0.21.0)
@@ -65,4 +66,4 @@ DEPENDENCIES
   shoulda-matchers (~> 3.0)
 
 BUNDLED WITH
-   1.16.0
+   1.16.6
