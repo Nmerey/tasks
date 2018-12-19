@@ -1,5 +1,6 @@
 require "date"
-require "byebug"
+require "time" #Make everything Time instance
+require "byebug" #Helps to debug and test
 require "active_record"
 
 require_relative "../models/user"
