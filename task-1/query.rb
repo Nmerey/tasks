@@ -10,13 +10,13 @@ class Query
 
     sorted_post_order = all_posts.sort {|a,b| b.posted_at <=> a.posted_at} #Posts from latest to newest
 
-    sorted_post_order.each do |elem|
+    sorted_post_order.each do |current_post|
         
         
-        sorted_comments = all_comments.where(post_id: elem.id).sort {|a,b| a.posted_at <=> b.posted_at} #Comments from Newest to Latest
+        sorted_comments = all_comments.where(post_id: current_post.id).sort {|a,b| a.posted_at <=> b.posted_at} #Comments from Newest to Latest
         last_comment = sorted_comments.last
 
-        the_author = User.all.find_by_id(elem.user_id) #Author of the current Post
+        the_author = User.all.find_by_id(current_post.user_id) #Author of the current Post
 
         comments = []
 
@@ -37,14 +37,14 @@ class Query
                 
         end 
 
-        sorted_result << { id: elem.id,
-            title: elem.title,
-            content: elem.content,
-            posted_at: Time.parse(elem.posted_at.to_s),
+        sorted_result << { id: current_post.id,
+            title: current_post.title,
+            content: current_post.content,
+            posted_at: Time.parse(current_post.posted_at.to_s),
             last_comment_at: Time.parse(last_comment.posted_at.to_s),
             number_of_comments: sorted_comments.count,
             author: {
-                id: elem.user_id,
+                id: current_post.user_id,
                 first_names: the_author.first_names,
                 last_names: the_author.last_names,
             },
