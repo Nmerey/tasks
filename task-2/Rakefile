@@ -12,7 +12,7 @@ namespace :db do
   desc "Migrate the database"
   task :migrate do
     ActiveRecord::Base.establish_connection(DB_CONFIG)
-    ActiveRecord::Migrator.migrate("db/migrate/")
+    ActiveRecord::MigrationContext.new("db/migrate/").migrate #Change Migrator to MigrationContext
     Rake::Task["db:schema"].invoke
     puts "Database migrated."
   end
