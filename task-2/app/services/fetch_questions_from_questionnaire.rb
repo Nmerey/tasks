@@ -5,7 +5,7 @@ class FetchQuestionsFromQuestionnaire
 
   def call
     questions = []
-    # your code here
+    questions = Question.all.where(questionnaire_id: @questionnaire.id)
     questions   # collection of Question objects
   end
 end
