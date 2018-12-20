@@ -21,7 +21,6 @@ RSpec.describe AddQuestionToQuestionnaire do
       described_class.new(questionnaire: questionnaire, question: questions[2]).call
       described_class.new(questionnaire: questionnaire, question: questions[3]).call
     end
-
     before { subject }
     it { expect(questions_of_questionnaire_in_order.to_a).to match_array(questions) }
   end

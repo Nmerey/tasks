@@ -5,7 +5,14 @@ class FetchQuestionsFromQuestionnaire
 
   def call
     questions = []
-    questions = Question.all.where(questionnaire_id: @questionnaire.id)
-    questions   # collection of Question objects
+
+    Question.all.each do |question|
+    	if question.questionnaire_id == @questionnaire.id
+    		questions << question
+    	end 
+    	
+    end
+    return questions   # collection of Question objects
   end
+  
 end
