@@ -7,9 +7,14 @@ class RemoveQuestionFromQuestionnaire
   end
 
   def call
-	@question.questionnaire_id = nil
-	@question.save
-
+  	
+  	if @question.questionnaire_id != @questionnaire.id #Checks for Question in questionnaire
+  		raise ActiveRecord::RecordNotFound
+  	else
+  		@question.questionnaire_id = nil
+  		@question.save
+  	end
+	
     @questionnaire
   end
 end

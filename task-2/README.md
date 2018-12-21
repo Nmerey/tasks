@@ -40,7 +40,7 @@ in the list returned by FetchQuestionsFromQuestionnaire.
 * RemoveQuestionFromQuestionnaire
 Complete class `RemoveQuestionFromQuestionnaire`, which responsibility is to remove
 the Question from the Questionnaire. After running this class for a Question, this Question should not appear
-in the list retuned by FetchQuestionsFromQuestionnaire anymore. If the given Question does not exist in the Questionnaire,
+in the list returned by FetchQuestionsFromQuestionnaire anymore. If the given Question does not exist in the Questionnaire,
 then `ActiveRecord::RecordNotFound` should be returned.
 
 Then:

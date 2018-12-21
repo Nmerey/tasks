@@ -35,6 +35,7 @@ RSpec.describe RemoveQuestionFromQuestionnaire do
 
   context "when questionnaire doesn't have the given question" do
     let(:removed_question) { create(:question) }
+    
     it { expect { subject }.to raise_error(ActiveRecord::RecordNotFound) }
   end
 
