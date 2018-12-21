@@ -1,5 +1,5 @@
 class AddAnswerToQuestion
-	attr_accessor :question
+	attr_accessor :question #attr accessor for changing instances
 	attr_accessor :answer
   def initialize(questionnaire:, question:, answer:)
     @questionnaire = questionnaire
@@ -13,7 +13,7 @@ class AddAnswerToQuestion
 
     else
     	@answer.question_id = @question.id
-    	@answer.save
+    	@answer.save #Update the answer
     end
   end
 end

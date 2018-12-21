@@ -20,6 +20,7 @@ RSpec.describe QuestionnaireReport do
       add_question_to_questionnaire(questionnaire, questions[0])
       add_question_to_questionnaire(questionnaire, questions[1])
       add_question_to_questionnaire(questionnaire, questions[2])
+
     end
 
     it { expect(subject.keys).to eq([questionnaire.name]) }
@@ -28,6 +29,8 @@ RSpec.describe QuestionnaireReport do
     it { expect(questionnaire_answers["yes"]).to eq(0) }
     it { expect(questionnaire_answers["no"]).to eq(0) }
     it { expect(questionnaire_answers["not_answered"]).to eq(3) }
+
+
   end
 
   context "when the questionnaire has questions with answers" do
@@ -44,6 +47,8 @@ RSpec.describe QuestionnaireReport do
       add_answer_to_question(questionnaire, questions[0], create(:answer, value: "yes"))
       add_answer_to_question(questionnaire, questions[3], create(:answer, value: "no"))
       add_answer_to_question(questionnaire, questions[4], create(:answer, value: "yes"))
+
+
     end
 
     it { expect(subject.keys).to eq([questionnaire.name]) }
@@ -52,6 +57,7 @@ RSpec.describe QuestionnaireReport do
     it { expect(questionnaire_answers["yes"]).to eq(2) }
     it { expect(questionnaire_answers["no"]).to eq(1) }
     it { expect(questionnaire_answers["not_answered"]).to eq(3) }
+
   end
 
   private
@@ -61,10 +67,14 @@ RSpec.describe QuestionnaireReport do
   end
 
   def add_answer_to_question(questionnaire, question, answer)
+    
     AddAnswerToQuestion.new(questionnaire: questionnaire, question: question, answer: answer).call
+    
   end
 
   def questionnaire_answers
     subject[questionnaire.name]
+    
+    
   end
 end
