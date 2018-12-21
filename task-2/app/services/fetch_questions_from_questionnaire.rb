@@ -12,7 +12,7 @@ class FetchQuestionsFromQuestionnaire
     	end 
     	
     end
-    return questions   # collection of Question objects
+    return questions.sort_by{|question| question.id}   # collection of Question objects in order
   end
   
 end
