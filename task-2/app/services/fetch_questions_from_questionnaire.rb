@@ -20,7 +20,7 @@ class FetchQuestionsFromQuestionnaire
   		
   	end
 
-  	questions
+  	questions.compact #Removes all nil in the array
   end
   
 end

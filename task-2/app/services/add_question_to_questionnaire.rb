@@ -1,6 +1,6 @@
 class AddQuestionToQuestionnaire
 	attr_accessor :question, :place
-  def initialize(questionnaire:, question:, place: nil) #Place added
+  def initialize(questionnaire:, question:, place: nil) #Place keyword added, Default is nil when not given
     @questionnaire = questionnaire
     @question = question
     @place = place
