@@ -33,5 +33,6 @@ RSpec.describe FetchQuestionsFromQuestionnaire do
 
   def add_question_to_questionnaire(questionnaire, question, place)
     AddQuestionToQuestionnaire.new(questionnaire: questionnaire, question: question, place: place).call
+    
   end
 end

@@ -1,6 +1,6 @@
 class AddQuestionToQuestionnaire
-	attr_accessor :question
-  def initialize(questionnaire:, question:, place:) #Place added
+	attr_accessor :question, :place
+  def initialize(questionnaire:, question:, place: nil) #Place added
     @questionnaire = questionnaire
     @question = question
     @place = place
@@ -8,16 +8,17 @@ class AddQuestionToQuestionnaire
   end
 
   def call
-  	
-  	if @place.nil?
-  		@place = @all_questions.count
+  
+    @question.place = @place
+    
 
-  	elsif @place.to_s.count("a-zA-Z") > 0 #Checks for letters in given place instance
+    if @place != nil && @place.to_s.count("a-zA-Z") > 0 #Checks for letters in given place instance
   		raise ActiveRecord::ActiveRecordError
-
-	elsif @place.negative?
-		raise ActiveRecord::ActiveRecordError 		
-  	end
+    
+    elsif @place != nil && @place.negative?
+		  raise ActiveRecord::ActiveRecordError 		
+  	
+    end
   	
   	@question.questionnaire_id = @questionnaire.id
   	@question.save #Need to save question in order to update
